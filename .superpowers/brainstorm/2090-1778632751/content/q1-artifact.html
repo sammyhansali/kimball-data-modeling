@@ -1,0 +1,33 @@
+<h2>What's the primary artifact?</h2>
+<p class="subtitle">What should exist at the end of this project?</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>SQL schema + sample data</h3>
+      <p>DDL for the star schema tables, populated with realistic retail data you can query against</p>
+    </div>
+  </div>
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>dbt project</h3>
+      <p>A proper dbt project that transforms raw source data into a dimensional model — closer to real-world practice</p>
+    </div>
+  </div>
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Design + annotated schema</h3>
+      <p>Schema diagrams and DDL with comments explaining each Kimball decision — more of a study guide than a working system</p>
+    </div>
+  </div>
+  <div class="option" data-choice="d" onclick="toggleSelect(this)">
+    <div class="letter">D</div>
+    <div class="content">
+      <h3>Python ETL pipeline</h3>
+      <p>Python code that generates and loads data into the dimensional model — leans into the Python project setup</p>
+    </div>
+  </div>
+</div>

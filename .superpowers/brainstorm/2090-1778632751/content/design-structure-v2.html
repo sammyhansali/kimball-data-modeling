@@ -1,0 +1,55 @@
+<h2>Section 1: Project Structure (updated)</h2>
+<p class="subtitle">One dbt project per chapter, all inside the same repo</p>
+
+<div class="split">
+  <div class="mockup">
+    <div class="mockup-header">Repo Layout</div>
+    <div class="mockup-body">
+      <pre style="font-size:13px;line-height:1.7;margin:0">kimball-data-modelling/
+│
+├── <strong>ch03_retail/</strong>              ← Chapter 3 (this one)
+│   ├── dbt_project.yml
+│   ├── seeds/
+│   │   ├── raw_transactions.csv
+│   │   ├── raw_products.csv
+│   │   ├── raw_stores.csv
+│   │   └── raw_promotions.csv
+│   └── models/
+│       ├── staging/
+│       │   ├── stg_transactions.sql
+│       │   ├── stg_products.sql
+│       │   ├── stg_stores.sql
+│       │   └── stg_promotions.sql
+│       └── marts/
+│           ├── dim_date.sql
+│           ├── dim_product.sql
+│           ├── dim_store.sql
+│           ├── dim_promotion.sql
+│           └── fct_retail_sales.sql
+│
+├── <strong>ch04_.../</strong>                 ← future chapters
+├── pyproject.toml            ← shared Python env (dbt-duckdb)
+└── main.py</pre>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-header">Why this structure</div>
+    <div class="mockup-body">
+      <div style="margin-bottom:18px">
+        <span class="label">Self-contained chapters</span>
+        <p style="margin:4px 0 0">Each chapter directory is a complete, runnable dbt project. You can <code>cd ch03_retail && dbt run</code> independently.</p>
+      </div>
+      <div style="margin-bottom:18px">
+        <span class="label">Shared Python env</span>
+        <p style="margin:4px 0 0">One <code>pyproject.toml</code> at the root installs <code>dbt-duckdb</code> once. All chapter projects share it.</p>
+      </div>
+      <div>
+        <span class="label">Each chapter its own DuckDB file</span>
+        <p style="margin:4px 0 0">dbt-duckdb will write to <code>ch03_retail/dev.duckdb</code> by default — isolated per chapter, nothing shared.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p style="margin-top:20px;color:var(--text-secondary)">Does this updated structure look right? (Reply in terminal)</p>

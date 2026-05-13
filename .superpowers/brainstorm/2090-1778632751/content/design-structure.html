@@ -1,0 +1,53 @@
+<h2>Section 1: Project Structure</h2>
+<p class="subtitle">Seeds → Staging → Marts, running on DuckDB</p>
+
+<div class="split">
+  <div class="mockup">
+    <div class="mockup-header">dbt Project Layout</div>
+    <div class="mockup-body">
+      <pre style="font-size:13px;line-height:1.7;margin:0">kimball-data-modelling/
+├── <strong>seeds/</strong>
+│   ├── raw_transactions.csv   ← POS line items
+│   ├── raw_products.csv       ← product catalog
+│   ├── raw_stores.csv         ← store master
+│   └── raw_promotions.csv     ← promo definitions
+│
+├── <strong>models/</strong>
+│   ├── <strong>staging/</strong>
+│   │   ├── stg_transactions.sql
+│   │   ├── stg_products.sql
+│   │   ├── stg_stores.sql
+│   │   └── stg_promotions.sql
+│   │
+│   └── <strong>marts/</strong>
+│       ├── dim_date.sql        ← generated, no seed
+│       ├── dim_product.sql
+│       ├── dim_store.sql
+│       ├── dim_promotion.sql
+│       └── fct_retail_sales.sql
+│
+├── dbt_project.yml
+└── pyproject.toml             ← dbt-duckdb added here</pre>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-header">What each layer does</div>
+    <div class="mockup-body">
+      <div style="margin-bottom:18px">
+        <span class="label">Seeds</span>
+        <p style="margin:4px 0 0">Raw CSV files representing operational system output — what a real POS system would export. You'll author these to match the Kimball retail scenario.</p>
+      </div>
+      <div style="margin-bottom:18px">
+        <span class="label">Staging</span>
+        <p style="margin:4px 0 0">One model per source table. Light cleaning only: rename columns to snake_case, cast types, no joins. No Kimball decisions here yet.</p>
+      </div>
+      <div>
+        <span class="label">Marts</span>
+        <p style="margin:4px 0 0">The dimensional model itself. Each model is a deliberate Kimball design choice: surrogate keys, conformed dimensions, grain declaration. This is where the learning happens.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p style="margin-top:20px;color:var(--text-secondary)">Does this structure look right? (Reply in terminal)</p>

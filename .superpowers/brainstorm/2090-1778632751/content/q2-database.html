@@ -1,0 +1,26 @@
+<h2>Which database target?</h2>
+<p class="subtitle">dbt needs a warehouse to run against — which fits your setup?</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>DuckDB (Recommended)</h3>
+      <p>Runs locally, zero infrastructure, installs as a Python package. Perfect for learning — no cloud account or server needed</p>
+    </div>
+  </div>
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>PostgreSQL</h3>
+      <p>Local or Docker-based. More production-realistic SQL, but requires a running server</p>
+    </div>
+  </div>
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>BigQuery / Snowflake</h3>
+      <p>Cloud warehouse you already have access to — most realistic, but needs credentials and may incur cost</p>
+    </div>
+  </div>
+</div>
